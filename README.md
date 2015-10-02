@@ -1,4 +1,5 @@
-trueip: Collects
+trueip:  malkova vonka @Salesforce ITSecurity
+license: free to distribute
 
 # Information about trueip
 
