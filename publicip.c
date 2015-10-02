@@ -13,11 +13,11 @@ char *build_get_query(char *host, char *page);
 void usage();
  
 #define HOST "ipinfo.io"
-#define PAGE "/json"
+#define PAGE "/ip"
 #define PORT 80
 #define USERAGENT "POLAR 1.0"
  
-int main(int argc, char **argv)
+char *get_publicip()
 {
   struct sockaddr_in *remote;
   int sock;
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
   char buf[BUFSIZ+1];
   char *host;
   char *page;
+  char *publicip = (char *)malloc(16);
  
   host = HOST;
   page = PAGE;
@@ -86,7 +87,8 @@ int main(int argc, char **argv)
       htmlcontent = buf;
     }
     if(htmlstart){
-      fprintf(stdout, htmlcontent);
+      //fprintf(stdout, htmlcontent);
+      strncpy(publicip, htmlcontent,strlen(htmlcontent)-1);
     }
  
     memset(buf, 0, tmpres);
@@ -99,16 +101,8 @@ int main(int argc, char **argv)
   free(remote);
   free(ip);
   close(sock);
-  return 0;
+  return publicip;
 }
- 
-void usage()
-{
-  fprintf(stderr, "USAGE: htmlget host [page]\n\
-\thost: the website hostname. ex: coding.debuntu.org\n\
-\tpage: the page to retrieve. ex: index.html, default: /\n");
-}
- 
  
 int create_tcp_socket()
 {

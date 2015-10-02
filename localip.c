@@ -1,12 +1,6 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
-#include <linux/netdevice.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <unistd.h>
+#include "trueip.h"
 
-int print_addresses(const int domain)
+char *print_addresses(const int domain)
 {
   int s;
   struct ifconf ifconf;
@@ -14,6 +8,7 @@ int print_addresses(const int domain)
   int ifs;
   int i;
   int b=1;
+  char* rtext = (char*) malloc(100);
 
   s = socket(domain, SOCK_STREAM, 0);
   if (s < 0) {
@@ -30,9 +25,8 @@ int print_addresses(const int domain)
   }
 
   ifs = ifconf.ifc_len / sizeof(ifr[0]);
-  //printf("interfaces = %d:\n", ifs);
-  (domain == AF_INET ) ? printf("\"ipv4\": ") : printf("\"ipv6\": ");
-  printf("{\"interfaces\": [");
+  //(domain == AF_INET ) ? printf("\"ipv4\": ") : printf("\"ipv6\": ");
+  //printf("{\"interfaces\": [");
 
   for (i = 0; i < ifs; i++) {
     char ip[INET_ADDRSTRLEN];
@@ -43,33 +37,39 @@ int print_addresses(const int domain)
       return 0;
     }
 
-    if (!b) printf(",");
-    printf("{\"name\": \"%s\", \"ip\": \"%s\"}", ifr[i].ifr_name, ip);
-    //printf("%s - %s\n", ifr[i].ifr_name, ip);
+    if (!b) {
+	//printf(",");
+	sprintf(rtext, "%s,",rtext);
+    }
+    //printf("{\"name\": \"%s\", \"ip\": \"%s\"}", ifr[i].ifr_name, ip);
     b=0;
+    //if(ifr[i].ifr_name != "lo")
+	sprintf(rtext, "%s%s=%s", rtext,ifr[i].ifr_name,ip);
   }
-  printf("]}");
+  //printf("]}");
 
   close(s);
 
-  return 1;
+  return rtext;
 }
 
-int main(int argc, char *argv[])
+char *get_localip()
 {
   //int domains[] = { AF_INET, AF_INET6 };
-  int domains[] = { AF_INET, AF_INET6 };
+  int domains[] = { AF_INET };
   int i;
   int ob=1;
+  char* rtext = (char*) malloc(100);
 
-  printf("{");
+  //printf("{");
   for (i = 0; i < sizeof(domains) / sizeof(domains[0]); i++){
-    if(!ob) printf(",");
+    //if(!ob) printf(",");
     ob=0;
-    if (!print_addresses(domains[i]))
-      return 1;
+    if ((rtext = print_addresses(domains[i]))<0)
+      return "";
   }
 
-  printf("}");
-  return 0;
+  //printf("}");
+	
+  return rtext;
 }
