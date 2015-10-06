@@ -7,15 +7,9 @@
 #include <netinet/in.h>
 #include <unistd.h>
 
+extern int pcache_key;
+extern char *pcache_value;
 
+char *get_localip();
 char *get_publicip();
-//char *get_localip();
-
-extern char* g_publicip;
-
-struct publicip_cache{
-        int key;
-        char *value;
-};
-
-extern struct publicip_cache pcache;
+char *get_publicip_fromcache(char *localip);

@@ -8,7 +8,7 @@ char *print_addresses(const int domain)
   int ifs;
   int i;
   int b=1;
-  char* rtext = (char*) malloc(100);
+  char* rtext = (char*) malloc(1000);
 
   s = socket(domain, SOCK_STREAM, 0);
   if (s < 0) {
@@ -50,7 +50,7 @@ char *print_addresses(const int domain)
 
   close(s);
 
-  return strdup(rtext);
+  return rtext;
 }
 
 char *get_localip()
@@ -59,7 +59,7 @@ char *get_localip()
   int domains[] = { AF_INET };
   int i;
   int ob=1;
-  char* rtext = (char*) malloc(100);
+  char* rtext;
 
   //printf("{");
   for (i = 0; i < sizeof(domains) / sizeof(domains[0]); i++){
