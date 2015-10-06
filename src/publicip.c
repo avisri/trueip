@@ -148,3 +148,15 @@ char *build_get_query(char *host, char *page)
   sprintf(query, tpl, getpage, host, USERAGENT);
   return query;
 }
+
+
+/*
+int main()
+{
+ char *lp;
+ lp=get_publicip();
+ printf("%s",lp);
+ free(lp);
+ return 0;
+}
+*/

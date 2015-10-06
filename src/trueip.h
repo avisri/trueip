@@ -9,4 +9,13 @@
 
 
 char *get_publicip();
-char *get_localip();
+//char *get_localip();
+
+extern char* g_publicip;
+
+struct publicip_cache{
+        int key;
+        char *value;
+};
+
+extern struct publicip_cache pcache;

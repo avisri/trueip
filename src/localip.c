@@ -50,7 +50,7 @@ char *print_addresses(const int domain)
 
   close(s);
 
-  return rtext;
+  return strdup(rtext);
 }
 
 char *get_localip()
