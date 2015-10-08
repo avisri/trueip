@@ -1,4 +1,139 @@
 bash# valgrind --track-origins=yes --leak-check=full ./trueip 
+==12802== Memcheck, a memory error detector
+==12802== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==12802== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info
+==12802== Command: ./trueip
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4C304E6: __GI___rawmemchr (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAFE61: _IO_str_init_static_internal (strops.c:44)
+==12802==    by 0x4E9F076: __isoc99_vsscanf (isoc99_vsscanf.c:41)
+==12802==    by 0x4E9F016: __isoc99_sscanf (isoc99_sscanf.c:32)
+==12802==    by 0x4012ED: inject_trueip (trueip.c:27)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x401290: inject_trueip (trueip.c:18)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4C2D267: __strncpy_sse2_unaligned (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x40136D: inject_trueip (trueip.c:30)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x401290: inject_trueip (trueip.c:18)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4E7DA94: vfprintf (vfprintf.c:1635)
+==12802==    by 0x4E86C18: printf (printf.c:34)
+==12802==    by 0x401567: get_publicip_fromcache (trueip.c:83)
+==12802==    by 0x40139D: inject_trueip (trueip.c:36)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x400E35: get_publicip (publicip.c:30)
+==12802==    by 0x401543: get_publicip_fromcache (trueip.c:82)
+==12802==    by 0x40139D: inject_trueip (trueip.c:36)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4C2CBB8: strlen (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013AD: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x401266: inject_trueip (trueip.c:16)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4C2CBB8: strlen (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013DA: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x400E35: get_publicip (publicip.c:30)
+==12802==    by 0x401543: get_publicip_fromcache (trueip.c:82)
+==12802==    by 0x40139D: inject_trueip (trueip.c:36)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4E7DA94: vfprintf (vfprintf.c:1635)
+==12802==    by 0x4EA397A: vsprintf (iovsprintf.c:42)
+==12802==    by 0x4E86D46: sprintf (sprintf.c:32)
+==12802==    by 0x401430: inject_trueip (trueip.c:44)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x401266: inject_trueip (trueip.c:16)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid write of size 1
+==12802==    at 0x4C3071D: __GI_mempcpy (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAE548: _IO_default_xsputn (genops.c:464)
+==12802==    by 0x4E7DA4C: vfprintf (vfprintf.c:1635)
+==12802==    by 0x4EA397A: vsprintf (iovsprintf.c:42)
+==12802==    by 0x4E86D46: sprintf (sprintf.c:32)
+==12802==    by 0x401430: inject_trueip (trueip.c:44)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Address 0x51fa110 is 1 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid write of size 1
+==12802==    at 0x4EA3989: vsprintf (iovsprintf.c:43)
+==12802==    by 0x4E86D46: sprintf (sprintf.c:32)
+==12802==    by 0x401430: inject_trueip (trueip.c:44)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Address 0x51fa111 is 2 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid read of size 1
+==12802==    at 0x4C2CBD4: __GI_strlen (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EA2DFB: puts (ioputs.c:36)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x51fa10f is 0 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid read of size 1
+==12802==    at 0x4C30758: __GI_mempcpy (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAC4BC: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1360)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x51fa10f is 0 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid read of size 1
+==12802==    at 0x4C30766: __GI_mempcpy (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAC4BC: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1360)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x51fa110 is 1 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Conditional jump or move depends on uninitialised value(s)
+==12802==    at 0x4E7DA94: vfprintf (vfprintf.c:1635)
+==12802==    by 0x4E86C18: printf (printf.c:34)
+==12802==    by 0x401527: get_publicip_fromcache (trueip.c:78)
+==12802==    by 0x40139D: inject_trueip (trueip.c:36)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802==  Uninitialised value was created by a heap allocation
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x400E35: get_publicip (publicip.c:30)
+==12802==    by 0x401543: get_publicip_fromcache (trueip.c:82)
+==12802==    by 0x40139D: inject_trueip (trueip.c:36)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache miss: setting cache for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
@@ -40,7 +175,29 @@ cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
-Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
+Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984==12802== Invalid read of size 1
+==12802==    at 0x4C30758: __GI_mempcpy (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAE548: _IO_default_xsputn (genops.c:464)
+==12802==    by 0x4EAC551: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1393)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x51ffb3f is 0 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid read of size 1
+==12802==    at 0x4C30766: __GI_mempcpy (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4EAE548: _IO_default_xsputn (genops.c:464)
+==12802==    by 0x4EAC551: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1393)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x51ffb40 is 1 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
@@ -163,7 +320,27 @@ cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
-Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
+Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107==12802== Invalid read of size 1
+==12802==    at 0x4EAE568: _IO_default_xsputn (genops.c:476)
+==12802==    by 0x4EAC551: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1393)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x52117af is 0 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+==12802== Invalid read of size 1
+==12802==    at 0x4EAE577: _IO_default_xsputn (genops.c:475)
+==12802==    by 0x4EAC551: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1393)
+==12802==    by 0x4EA2E96: puts (ioputs.c:41)
+==12802==    by 0x4015A5: main (trueip.c:95)
+==12802==  Address 0x52117b0 is 1 bytes after a block of size 143 alloc'd
+==12802==    at 0x4C29BFD: malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12802==    by 0x4013F8: inject_trueip (trueip.c:40)
+==12802==    by 0x401595: main (trueip.c:94)
+==12802== 
+ ssh2
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
@@ -299,3 +476,12 @@ Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20
 localip=[lo=127.0.0.1,eno16777984=172.20.20.201]
 cache hit: found publicip for localip hash: [lo=127.0.0.1,eno16777984=172.20.20.201] = [204.14.239.71]
 Oct  2 14:16:20 sor-dash[public=204.14.239.71,lo=127.0.0.1,eno16777984=172.20.20.201] Accepted password for root from 172.20.20.4 port 50107 ssh2
+==12802== 
+==12802== HEAP SUMMARY:
+==12802==     in use at exit: 0 bytes in 0 blocks
+==12802==   total heap usage: 671 allocs, 671 frees, 144,688 bytes allocated
+==12802== 
+==12802== All heap blocks were freed -- no leaks are possible
+==12802== 
+==12802== For counts of detected and suppressed errors, rerun with: -v
+==12802== ERROR SUMMARY: 1500 errors from 16 contexts (suppressed: 2 from 2)
