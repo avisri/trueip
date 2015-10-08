@@ -43,9 +43,10 @@ char *print_addresses(const int domain)
 	sprintf(rtext, "%s,",rtext);
     }
     //printf("{\"name\": \"%s\", \"ip\": \"%s\"}", ifr[i].ifr_name, ip);
-    b=0;
-    //if(ifr[i].ifr_name != "lo")
+    if(strcmp(ip,"127.0.0.1")!=0){
 	sprintf(rtext, "%s%s=%s", rtext,ifr[i].ifr_name,ip);
+	b=0;
+    }
   }
   //printf("]}");
 
