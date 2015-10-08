@@ -28,6 +28,7 @@ char *print_addresses(const int domain)
   //(domain == AF_INET ) ? printf("\"ipv4\": ") : printf("\"ipv6\": ");
   //printf("{\"interfaces\": [");
 
+  sprintf(rtext, "");
   for (i = 0; i < ifs; i++) {
     char ip[INET_ADDRSTRLEN];
     struct sockaddr_in *s_in = (struct sockaddr_in *) &ifr[i].ifr_addr;

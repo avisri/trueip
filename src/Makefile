@@ -1,6 +1,5 @@
-all: localip.c publicip.c
-	gcc -g -Wall -o localip localip.c
-	gcc -g -Wall -o publicip publicip.c
+all: publicip.c localip.c trueip.c
+	gcc -g -Wall -o trueip localip.c publicip.c trueip.c
 
 clean: 
-	$(RM) localip publicip
+	$(RM) trueip

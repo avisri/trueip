@@ -30,18 +30,18 @@ char *inject_trueip(char *from)
 	strncpy(rtuple3, tuple3+14+strlen(tuple2), strlen(from)-strlen(tuple2)-16 );
 
 	localip = get_localip();
-	//printf("localip=%s\n",localip);
+	printf("localip=[%s]\n",localip);
 	//strcpy(localip,"en1=10.1.1.2,en2=172.20.3.4");
 	//publicip = get_publicip();
-	publicip = get_publicip_fromcache("test");	/*if cache miss, it gets it from public*/
+	publicip = get_publicip_fromcache(localip);	/*if cache miss, it gets it from public*/
 
 	//rtext = (char*) malloc(strlen(tuple1)+strlen(tuple2)+strlen(rtuple3));
-	rtext = (char*) malloc(strlen(tuple1)+strlen(tuple2)+strlen(rtuple3)+strlen(publicip)+10);
-	//rtext = (char*) malloc(strlen(tuple1)+strlen(tuple2)+strlen(rtuple3)+strlen(publicip)+strlen(localip)+1);
+	//rtext = (char*) malloc(strlen(tuple1)+strlen(tuple2)+strlen(rtuple3)+strlen(publicip)+10);
+	rtext = (char*) malloc(strlen(tuple1)+strlen(tuple2)+strlen(rtuple3)+strlen(publicip)+strlen(localip)+10);
 
 	//sprintf(rtext,"%s %s %s",tuple1,tuple2,rtuple3);
-	sprintf(rtext,"%s %s[public=%s] %s",tuple1,tuple2,publicip,rtuple3);
-	//sprintf(rtext,"%s %s[public=%s,%s] %s",tuple1,tuple2,publicip,localip,rtuple3);
+	//sprintf(rtext,"%s %s[public=%s] %s",tuple1,tuple2,publicip,rtuple3);
+	sprintf(rtext,"%s %s[public=%s,%s] %s",tuple1,tuple2,publicip,localip,rtuple3);
 
 	free(tuple1);
 	free(tuple2);
