@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
+#ifdef LINUX 
 #include <linux/netdevice.h>
+#endif/* def LINUX */
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <unistd.h>
